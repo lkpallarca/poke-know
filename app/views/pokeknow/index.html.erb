@@ -1,0 +1,11 @@
+<h1> This is Poke-know home page </h1>
+
+<%= form_with url: pokemon_path, method: :get do |form| %>
+  <%= form.text_field :pokemon_name, placeholder: "Search for pokemon" %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<%= form_with url: pokemon_path, method: :get do |form| %>
+  <%= form.text_field :pokemon_name, placeholder: "Search for pokemon" %>
+  <%= form.submit "Search" %>
+<% end %>
