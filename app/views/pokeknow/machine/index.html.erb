@@ -1,0 +1,5 @@
+<%= link_to 'Home', root_path %>
+
+<h1> <%= @specific_machine["name"] %> </h1> 
+<img src="<%= @specific_machine["sprites"]["default"] %>" alt="machine sprite">
+<div> <%= @specific_machine["flavor_text_entries"][1]['text'] %> </div>

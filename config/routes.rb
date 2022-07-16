@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   root "pokeknow#index"
 
-  get '/pokemon', to: "pokemon#index", as: "pokemon"
-  get '/item', to: "item#index", as: "item"
+  namespace :pokeknow do
+    resources :pokemon, only: :index
+    resources :item, only: :index
+    resources :berry, only: :index
+    resources :machine, only: :index
+    resources :move, only: :index
+  end
 end
