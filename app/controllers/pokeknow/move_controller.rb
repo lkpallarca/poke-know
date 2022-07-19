@@ -1,6 +1,6 @@
 class Pokeknow::MoveController < ApplicationController
-  def index
-    poke = Pokemon::Api::Client.new
-    @specific_move = poke.move(params[:p].parameterize)
+  def show
+    poke = Pokeapi::Move.new
+    @specific_move = poke.get_move(params[:p].parameterize)
   end
 end

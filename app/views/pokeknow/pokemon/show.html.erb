@@ -1,0 +1,26 @@
+<%= link_to 'Home', root_path %>
+
+<%= form_with url: pokeknow_pokemon_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for pokemon" %>
+  <%= form.submit "Search", name: "" %>
+<% end %>
+
+<h1>Pokedex No. <%= @specific_pokemon['pokedex_number'] %> - <%= @specific_pokemon['name'] %> </h1>
+<p>The <%= @specific_pokemon['pokemon_genus'] %> </p>
+<p> <%= @specific_pokemon['pokemon_generation'] %> </p>
+<% @specific_pokemon["pokemon_sprites"].each do |sprite| %>
+  <% unless sprite == nil %>
+    <img src="<%= sprite %>" alt="pokemon sprite">
+  <% end %>
+<% end %>
+<div>Types:</div>
+<% @specific_pokemon['types'].each do |type| %>
+  <%= link_to "#{type['type']['name']}", pokeknow_type_path(p: type['type']['name']) %>
+<% end %>
+<% @specific_pokemon['abilities'].each do |ability| %>
+  <p> <%= ability["is_hidden"] ? "Hidden Ability" : "Ability" %> : <%= link_to "#{ability["ability"]['name']}", pokeknow_ability_path(p: ability["ability"]['name']) %> </p>
+<% end %>
+<% @specific_pokemon['stats'].each do |stat| %>
+  <p> <%= stat['stat']['name'] %> : <%= stat['base_stat'] %> </p>
+<% end %>
+<%= @specific_pokemon['pokemon_flavor_text'] %>

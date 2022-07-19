@@ -1,0 +1,80 @@
+<%= link_to "Home", root_path %>
+<br>
+<%= form_with url: pokeknow_type_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for type" %>
+  <%= form.submit "Search", name: '' %>
+<% end %>
+<br>
+<h1> <%= @specific_type['name'] %> type </h1> 
+
+<div><%= @specific_type['name'] %> type when attacking, deals:</div>
+<table>
+  <thead>
+    <tr>
+      <th>Double Damage to</th>
+      <th>Half Damage to</th>
+      <th>No Damage to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% unless @specific_type['damage_relations']['double_damage_to'].length == 0 %>
+          <% @specific_type['damage_relations']['double_damage_to'].each do |to| %>
+            <span> <%= link_to "#{to['name']}", pokeknow_type_path(p: to['name']) %> </span>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% unless @specific_type['damage_relations']['half_damage_to'].length == 0 %>
+          <% @specific_type['damage_relations']['half_damage_to'].each do |to| %>
+            <span> <%= link_to "#{to['name']}", pokeknow_type_path(p: to['name']) %> </span>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% unless @specific_type['damage_relations']['no_damage_to'].length == 0 %>
+          <% @specific_type['damage_relations']['no_damage_to'].each do |to| %>
+            <span> <%= link_to "#{to['name']}", pokeknow_type_path(p: to['name']) %> </span>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div><%= @specific_type['name'] %> type when defending, receives:</div>
+<table>
+  <thead>
+    <tr>
+      <th>Double Damage from</th>
+      <th>Half Damage from</th>
+      <th>No Damage from</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% unless @specific_type['damage_relations']['double_damage_from'].length == 0 %>
+          <% @specific_type['damage_relations']['double_damage_from'].each do |from| %>
+            <span> <%= link_to "#{from['name']}", pokeknow_type_path(p: from['name']) %> </span>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% unless @specific_type['damage_relations']['half_damage_from'].length == 0 %>
+          <% @specific_type['damage_relations']['half_damage_from'].each do |from| %>
+            <span> <%= link_to "#{from['name']}", pokeknow_type_path(p: from['name']) %> </span>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% unless @specific_type['damage_relations']['no_damage_from'].length == 0 %>
+          <% @specific_type['damage_relations']['no_damage_from'].each do |from| %>
+            <span> <%= link_to "#{from['name']}", pokeknow_type_path(p: from['name']) %> </span>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

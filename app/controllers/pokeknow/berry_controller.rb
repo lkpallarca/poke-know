@@ -1,9 +1,9 @@
 class Pokeknow::BerryController < ApplicationController
   before_action :check_berry_params
 
-  def index
-    poke = Pokemon::Api::Client.new
-    @specific_item = poke.item(params[:p].to_s)
+  def show
+    poke_berry = Pokeapi::Berry.new
+    @specific_berry = poke_berry.get_berry(params[:p])
   end
 
   private

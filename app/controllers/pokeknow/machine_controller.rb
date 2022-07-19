@@ -1,9 +1,9 @@
 class Pokeknow::MachineController < ApplicationController
   before_action :check_machine_params
 
-  def index
-    poke = Pokemon::Api::Client.new
-    @specific_machine = poke.item(params[:p].to_s)
+  def show
+    poke_machine = Pokeapi::Machine.new
+    @specific_machine = poke_machine.get_machine(params[:p])
   end
 
   private

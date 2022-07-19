@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
   root "pokeknow#index"
 
   namespace :pokeknow do
-    resources :pokemon, only: :index
-    resources :item, only: :index
-    resources :berry, only: :index
-    resources :machine, only: :index
-    resources :move, only: :index
+    resources :pokemon, only: :show
+    resources :item, only: :show
+    resources :berry, only: :show
+    resources :machine, only: :show
+    resources :move, only: :show
+    resources :type, only: :show
+    resources :ability, only: :show
   end
 end

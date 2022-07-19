@@ -1,34 +1,41 @@
 module Pokemon
   module Api
     class Client
-      BASE_URL = "https://pokeapi.co/api/v2".freeze
-
-      def pokemon(pokemon)
-        send_request("pokemon", pokemon)
+      def get_pokemon_list(offset)
+        fetch_list("pokemon", offset)
       end
 
-      def item(item)
-        send_request("item", item)
+      def get_item_list(offset)
+        fetch_list("item", offset)
       end
 
-      def berry(berry)
-        send_request("berry", berry)
+      def get_berry_list(offset)
+        fetch_list("berry", offset)
       end
 
-      def machine(machine)
-        send_request("machine", machine)
+      def get_machine_list(offset)
+        fetch_list("machine", offset)
       end
 
-      def move(move)
-        send_request("move", move)
+      def get_move_list(offset)
+        fetch_list("move", offset)
       end
 
       private
 
-      def send_request(path, parameter)
-        connection = Faraday.new("#{BASE_URL}/#{path}/#{parameter}/")
-        response = connection.get
-        JSON.parse(response.body)
+      def fetch_list(path, offset)
+        if Rails.cache.exist?("#{path}/#{offset}/all")
+          puts "This api call is cached"
+          response = Rails.cache.read("#{path}/#{offset}/all")
+        else
+          connection = Faraday.new("https://pokeapi.co/api/v2/#{path}/?offset=#{offset}&limit=10")
+          request = connection.get
+          response = JSON.parse(request.body)
+  
+          Rails.cache.write("#{path}/#{offset}/all", response, expires_in: 2.hours) if request.success?
+        end
+        #long method fetching for readability
+        response
       end
     end
   end

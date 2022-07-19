@@ -1,0 +1,17 @@
+<%= link_to 'Home', root_path %>
+<br>
+<%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for tm" %>
+  <%= form.submit "Search", name: '' %>
+<% end %>
+<br>
+<h1> <%= @specific_machine["name"] %>: <%= link_to "#{@specific_machine["move_name"]}", pokeknow_move_path(p: @specific_machine["move_name"]) %> </h1>
+<img src="<%= @specific_machine["sprites"]["default"] %>" alt="machine sprite">
+<%= link_to "#{@specific_machine["tm_type"]} type", pokeknow_type_path(p: @specific_machine["tm_type"]) %>
+<p> <%= @specific_machine["tm_power"] %> </p>
+<p> <%= @specific_machine["tm_accuracy"] %> </p>
+<p> <%= @specific_machine["tm_pp"] %> </p>
+<p> <%= @specific_machine["tm_damage_class"] %> </p>
+<p>Cost: <%= @specific_machine["cost"] %> </p>
+<%= @specific_machine["tm_flavor_text"] %>
+<p>Effect: <%= @specific_machine["tm_effect"] %> </p>

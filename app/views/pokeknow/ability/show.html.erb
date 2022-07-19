@@ -1,0 +1,17 @@
+<%= link_to "Home", root_path %>
+<br>
+<%= form_with url: pokeknow_ability_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for ability" %>
+  <%= form.submit "Search", name: '' %>
+<% end %>
+<br>
+<p> <%= @specific_ability["name"] %> </p>
+<p> <%= @specific_ability['ability_flavor_text_entries'] %> </p>
+<% if @specific_ability['ability_effect_entries'] != nil %>
+  <p> <%= @specific_ability['ability_effect_entries']['effect'] %> </p>
+<% end %>
+<br>
+<div>Pokemon with <%= @specific_ability["name"] %>: </div>
+<% @specific_ability['pokemon'].each do |pokemon| %>
+  <li> <%= link_to "#{pokemon['pokemon']['name']}", pokeknow_pokemon_path(p: pokemon['pokemon']['name']) %> </li>
+<% end %>

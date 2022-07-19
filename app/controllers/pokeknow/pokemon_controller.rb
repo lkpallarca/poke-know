@@ -1,6 +1,6 @@
 class Pokeknow::PokemonController < ApplicationController
-  def index
-    poke = Pokemon::Api::Client.new
-    @specific_pokemon = poke.pokemon(params[:p].to_s)
+  def show
+    poke = Pokeapi::Pokemon.new
+    @specific_pokemon = poke.get_pokemon(params[:p])
   end
 end

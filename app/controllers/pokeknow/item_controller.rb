@@ -1,6 +1,6 @@
 class Pokeknow::ItemController < ApplicationController
-  def index
-    poke = Pokemon::Api::Client.new
-    @specific_item = poke.item(params[:p].parameterize)
+  def show
+    poke = Pokeapi::Item.new
+    @specific_item = poke.get_item(params[:p].parameterize)
   end
 end

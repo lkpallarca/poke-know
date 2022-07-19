@@ -1,0 +1,17 @@
+<%= link_to 'Home', root_path %>
+<br>
+<%= form_with url: pokeknow_berry_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for berry" %>
+  <%= form.submit "Search", name: '' %>
+<% end %>
+<br>
+<h1> <%= @specific_berry["name"] %>-berry </h1> 
+<img src="<%= @specific_berry["berry_sprite"] %>" alt="berry sprite">
+<div> <%= @specific_berry["berry_category"] %> </div>
+<div> <%= @specific_berry["berry_flavor_text"] %> </div>
+<div> <%= @specific_berry["berry_effect_entries"] %> </div>
+<p>Firmness: <%= @specific_berry['firmness']['name'] %> </p>
+<div> Flavors:</div>
+<% @specific_berry['flavors'].each do |flavor| %>
+  <li> <%= flavor['flavor']['name'] %> </li>
+<% end %>

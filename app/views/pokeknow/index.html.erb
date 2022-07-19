@@ -1,26 +1,36 @@
 <h1> This is Poke-know home page </h1>
 
-<%= form_with url: pokeknow_pokemon_index_path, method: :get do |form| %>
+<%= form_with url: pokeknow_pokemon_path(:p), method: :get, class: "bg-pokedex-image bg-center bg-no-repeat bg-cover w-96 h-96 " do |form| %>
   <%= form.text_field :p, placeholder: "Search for pokemon" %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", name: '' %>
 <% end %>
 <br>
-<%= form_with url: pokeknow_item_index_path, method: :get do |form| %>
+<%= form_with url: pokeknow_item_path(:p), method: :get do |form| %>
   <%= form.text_field :p, placeholder: "Search for item" %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", name: '' %>
 <% end %>
 <br>
-<%= form_with url: pokeknow_berry_index_path, method: :get do |form| %>
+<%= form_with url: pokeknow_berry_path(:p), method: :get do |form| %>
   <%= form.text_field :p, placeholder: "Search for berry" %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", name: '' %>
 <% end %>
 <br>
-<%= form_with url: pokeknow_machine_index_path, method: :get do |form| %>
+<%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
   <%= form.text_field :p, placeholder: "Search for tm" %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", name: '' %>
 <% end %>
 <br>
-<%= form_with url: pokeknow_move_index_path, method: :get do |form| %>
+<%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
   <%= form.text_field :p, placeholder: "Search for move" %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", name: '' %>
+<% end %>
+<br>
+<%= form_with url: pokeknow_ability_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for ability" %>
+  <%= form.submit "Search", name: '' %>
+<% end %>
+<br>
+<%= form_with url: pokeknow_type_path(:p), method: :get do |form| %>
+  <%= form.text_field :p, placeholder: "Search for type" %>
+  <%= form.submit "Search", name: '' %>
 <% end %>
