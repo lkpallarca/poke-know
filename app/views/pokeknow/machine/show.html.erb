@@ -1,17 +1,34 @@
-<%= link_to 'Home', root_path %>
-<br>
-<%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for tm" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<h1> <%= @specific_machine["name"] %>: <%= link_to "#{@specific_machine["move_name"]}", pokeknow_move_path(p: @specific_machine["move_name"]) %> </h1>
-<img src="<%= @specific_machine["sprites"]["default"] %>" alt="machine sprite">
-<%= link_to "#{@specific_machine["tm_type"]} type", pokeknow_type_path(p: @specific_machine["tm_type"]) %>
-<p> <%= @specific_machine["tm_power"] %> </p>
-<p> <%= @specific_machine["tm_accuracy"] %> </p>
-<p> <%= @specific_machine["tm_pp"] %> </p>
-<p> <%= @specific_machine["tm_damage_class"] %> </p>
-<p>Cost: <%= @specific_machine["cost"] %> </p>
-<%= @specific_machine["tm_flavor_text"] %>
-<p>Effect: <%= @specific_machine["tm_effect"] %> </p>
+<section class="machine-show">
+  <div class="machine-form">
+    <%= image_tag('question-mark.webp') %>
+    <%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
+      <%= form.text_field :p, placeholder: "Search for tm", class: "input" %>
+      <%= form.submit "Search", name: '', class: "button" %>
+    <% end %>
+  </div>
+
+  <div class="machine-details">
+    <div class="left-screen">
+      <div class="left-top">
+        <p>Machines</p>
+      </div>
+      <div class="left-bottom">
+        <% if @specific_machine["sprites"]["default"] != nil %>
+          <img src="<%= @specific_machine["sprites"]["default"] %>" alt="machine sprite" class="machine-image">
+        <% end %>
+        <%= image_tag 'tm-case.png' %>
+      </div>
+    </div>
+    <div class="right-screen">
+      <h1> <%= @specific_machine["name"].titleize %>: <u><%= link_to "#{@specific_machine["move_name"].titleize}", pokeknow_move_path(p: @specific_machine["move_name"]), style: "color: blue" %></u> </h1>
+      <%= link_to "#{@specific_machine["tm_type"].titleize} type", pokeknow_type_path(p: @specific_machine["tm_type"]), class: "#{@specific_machine["tm_type"]}" %>
+      <p><%= @specific_machine["tm_effect"] %> </p>
+      <p><%= @specific_machine["tm_flavor_text"] %></p>
+      <p>Power: <%= @specific_machine["tm_power"] %> </p>
+      <p>Accuracy: <%= @specific_machine["tm_accuracy"] %> </p>
+      <p>PP: <%= @specific_machine["tm_pp"] %> </p>
+      <p>Class: <%= @specific_machine["tm_damage_class"] %> </p>
+      <p>Cost: <%= @specific_machine["cost"] %> </p>
+    </div>
+  </div>
+</section>

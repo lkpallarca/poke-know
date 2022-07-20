@@ -3,7 +3,7 @@ class Pokeknow::BerryController < ApplicationController
 
   def show
     poke_berry = Pokeapi::Berry.new
-    @specific_berry = poke_berry.get_berry(params[:p])
+    @specific_berry = poke_berry.get_berry(params[:p].downcase)
   end
 
   private

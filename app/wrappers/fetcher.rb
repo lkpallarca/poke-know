@@ -12,7 +12,7 @@ class Fetcher
         request = connection.get
         response = JSON.parse(request.body)
 
-        Rails.cache.write("#{path}/#{parameter}", response, expires_in: 1.hour) if request.success?
+        Rails.cache.write("#{path}/#{parameter}", response, expires_in: 1.day) if request.success?
       end
       response
     end

@@ -3,6 +3,12 @@ module Pokeapi
     def get_item(item)
       response = Fetcher.send_request("item", item)
 
+      if response['flavor_text_entries'].length <= 2
+        item_flavor_text = response["flavor_text_entries"][0]["text"]
+      else
+        item_flavor_text = response["flavor_text_entries"][-3]["text"]
+      end
+
       if response['effect_entries'].length == 0
         item_effect_entry = ""
       else
@@ -14,7 +20,7 @@ module Pokeapi
         "item_sprite"=>response["sprites"]["default"],
         "item_category"=>response["category"]["name"],
         "item_cost"=>response["cost"],
-        "item_flavor_text"=>response["flavor_text_entries"][-3]["text"],
+        "item_flavor_text"=>item_flavor_text,
         "item_effect"=>item_effect_entry
       }
     end

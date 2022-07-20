@@ -1,0 +1,405 @@
+@import './base/variables';
+@import './base/mixins';
+
+.home {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color: $my-white;
+  color: $my-bg;
+  border-radius: 10px;
+}
+
+.pokeknow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    border: 2px solid white;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    margin-top: 5vh;
+    line-height: 1.5;
+  }
+
+  .top, .mid, .bot {
+    @include perimeter(auto, 100%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 2.5vh;
+  }
+
+  .ability-form {
+    @include perimeter(40px, 450px);
+    background-image: asset_url('ability-form.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+      @include perimeter(40px, 40px);
+      position: absolute;
+      top: 0;
+      left: 230px;
+    }
+
+    .input {
+      @include perimeter(30px, 200px);
+      position: absolute;
+      bottom: 3px;
+      left: 10px;
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(40px, 100px);
+      position: absolute;
+      bottom: 0px;
+      right: 50px;
+      border: none;
+      background-color: transparent;
+      font-size: 20px;
+      cursor: pointer;
+      
+      &:hover {
+        color: #ED2D44;
+      }
+    }
+  }
+
+  .move-form {
+    @include perimeter(45px, 400px);
+    background-color: white;
+    position: relative;
+    border-radius: 40px;
+
+    img {
+      @include perimeter(40px, 40px);
+      position: absolute;
+      top: 2px;
+      right: 100px;
+    }
+
+    .input {
+      @include perimeter(30px, 200px);
+      position: absolute;
+      top: 5px;
+      left: 15px;
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(100%, 70px);
+      position: absolute;
+      bottom: 0;
+      right: -2px;
+      border-radius: 40px;
+      background-color: black;
+      font-size: 14px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  .type-form {
+    @include perimeter(180px, 250px);
+    background-color: #E6E6E6;
+    border: 10px solid #03227C;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+      @include perimeter(80px, 80px);
+      position: absolute;
+      top: 10px;
+      left: 85px;
+    }
+
+    .input {
+      @include perimeter(30px, 200px);
+      position: absolute;
+      bottom: 50px;
+      left: 25px;
+      font-size: 25px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(30px, 100px);
+      position: absolute;
+      bottom: 15px;
+      left: 75px;
+      border-radius: 10px;
+      background-color: #03227C;
+      font-size: 14px;
+      box-shadow: 3px 3px 8px gray, -3px 3px 8px gray;
+      cursor: pointer;
+      
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .machine-form {
+    @include perimeter(250px, 250px);
+    background-image: asset_url('tm-case.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+      @include perimeter(60px, 60px);
+      position: absolute;
+      top: -15px;
+      right: 56px;
+    }
+
+    .input {
+      @include perimeter(30px, 150px);
+      position: absolute;
+      top: 90px;
+      left: 50px;
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(30px, 100px);
+      position: absolute;
+      bottom: 80px;
+      left: 75px;
+      border-radius: 10px;
+      background-color: #F0D038;
+      font-size: 14px;
+      box-shadow: 3px 3px 8px gray, -3px 3px 8px gray;
+      cursor: pointer;
+      
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .berry-form {
+    @include perimeter(250px, 250px);
+    background-image: asset_url('berry-pouch.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+      @include perimeter(60px, 60px);
+      position: absolute;
+      top: 10px;
+      left: 95px;
+    }
+
+    .input {
+      @include perimeter(30px, 150px);
+      position: absolute;
+      top: 110px;
+      left: 49px;
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(30px, 100px);
+      position: absolute;
+      bottom: 55px;
+      left: 75px;
+      border-radius: 10px;
+      background-color: #F8C898;
+      font-size: 14px;
+      box-shadow: 3px 3px 8px gray, -3px 3px 8px gray;
+      cursor: pointer;
+      
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .item-form {
+    @include perimeter(250px, 250px);
+    background-image: asset_url('poke-bag.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+      @include perimeter(60px, 60px);
+      position: absolute;
+      top: 40px;
+      left: 95px;
+    }
+
+    .input {
+      @include perimeter(30px, 150px);
+      position: absolute;
+      top: 140px;
+      left: 49px;
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(30px, 100px);
+      position: absolute;
+      bottom: 25px;
+      left: 75px;
+      border-radius: 10px;
+      background-color: #E8C860;
+      font-size: 14px;
+      box-shadow: 3px 3px 8px gray, -3px 3px 8px gray;
+      cursor: pointer;
+      
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .pokemon-form {
+    @include perimeter(200px, 400px);
+    background-image: asset_url('pokedex-form.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    position: relative;
+
+    img {
+      @include perimeter(40px, 40px);
+      position: absolute;
+      bottom: 20px;
+      right: 64px;
+    }
+
+    .input {
+      @include perimeter(50px, 300px);
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      font-size: 25px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(30px, 100px);
+      position: absolute;
+      bottom: 25px;
+      left: 130px;
+      border-radius: 10px;
+      background-color: red;
+      font-size: 14px;
+      box-shadow: 3px 3px 8px gray, -3px 3px 8px gray;
+      cursor: pointer;
+      
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

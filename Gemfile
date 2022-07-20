@@ -60,4 +60,3 @@ gem 'net-imap', require: false
 gem 'net-pop', require: false
 
 gem 'faraday'
-gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.10'

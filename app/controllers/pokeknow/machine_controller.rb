@@ -3,7 +3,7 @@ class Pokeknow::MachineController < ApplicationController
 
   def show
     poke_machine = Pokeapi::Machine.new
-    @specific_machine = poke_machine.get_machine(params[:p])
+    @specific_machine = poke_machine.get_machine(params[:p].downcase)
   end
 
   private

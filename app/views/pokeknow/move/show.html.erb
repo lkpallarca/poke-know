@@ -1,16 +1,34 @@
-<%= link_to 'Home', root_path %>
-<br>
-<%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for move" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<h1> <%= @specific_move["move_name"] %> </h1> 
-<p>Power: <%= @specific_move["move_power"] != nil ? @specific_move["move_power"] : 0 %> </p> 
-<p>Accuracy: <%= @specific_move["move_accuracy"] != nil ? @specific_move["move_accuracy"] : 0 %> </p> 
-<p>PP: <%= @specific_move["move_pp"] %> </p> 
-<%= link_to "#{@specific_move["move_type"]} type", pokeknow_type_path(p: @specific_move["move_type"]) %>
-<p>Class: <%= @specific_move["move_class"] %> </p> 
-<p>Priority: <%= @specific_move["move_priority"] %> </p> 
-<p> <%= @specific_move["move_flavor_text"] %> </p> 
-<p> <%= @specific_move["move_effect"] %> </p> 
+<section class="move-show">
+  <div class="move-form">
+    <%= image_tag('question-mark.webp') %>
+    <%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
+      <%= form.text_field :p, placeholder: "Search for move", class: "input" %>
+      <%= form.submit "Search", name: '', class: "button" %>
+    <% end %>
+  </div>
+
+  <div class="top-screen">
+    <h1> <%= @specific_move["move_name"].titleize %> </h1>
+    <%= link_to "#{@specific_move["move_type"].titleize}", pokeknow_type_path(p: @specific_move["move_type"]), class: "#{@specific_move["move_type"]}" %>
+    <p>PP: <%= @specific_move["move_pp"] %> </p>
+  </div>
+  <div class="bottom-screen">
+    <div class="category">
+      <p class="title">Category</p>
+      <p class="value"><%= @specific_move["move_class"].titleize %></p>
+    </div>
+    <div class="power">
+    <p class="title">Power</p>
+      <p class="value"><%= @specific_move["move_power"] != nil ? @specific_move["move_power"] : 0 %></p>
+    </div>
+    <div class="accuracy">
+    <p class="title">Accuracy</p>
+      <p class="value"><%= @specific_move["move_accuracy"] != nil ? @specific_move["move_accuracy"] : 0 %></p>
+    </div>
+    <div class="text">
+      <p> <%= @specific_move["move_flavor_text"] %> </p> 
+      <p> <%= @specific_move["move_effect"] %> </p> 
+      <p>Priority: <%= @specific_move["move_priority"] %> </p> 
+    </div>
+  </div>
+</section>

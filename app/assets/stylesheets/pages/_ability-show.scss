@@ -1,0 +1,143 @@
+@import './base/variables';
+@import './base/mixins';
+
+.ability-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .ability-details {
+    @include perimeter(195px, 500px);
+    background-image: asset_url('ability-template.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+    font-size: 18px;
+    margin-top: 10vh;
+
+    .title {
+      @include perimeter(40px, 100%);
+      display: flex;
+
+      .word {
+        @include perimeter(100%, 48%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .value {
+        @include perimeter(100%, 52%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .text {
+      @include scrollbar;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 10px;
+      line-height: 1.2;
+    }
+  }
+
+  .additional-details {
+    @include perimeter(195px, 500px);
+    background-image: asset_url('ability-template.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+    font-size: 18px;
+    margin-top: 5vh;
+
+    .title {
+      @include perimeter(40px, 100%);
+      display: flex;
+
+      .word {
+        @include perimeter(100%, 48%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .value {
+        @include perimeter(100%, 52%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .pokemon-grid {
+      @include perimeter(128px, 100%);
+      @include scrollbar;
+      padding: 5px 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      justify-items: center;
+    }
+  }
+
+  .ability-form {
+    @include perimeter(40px, 450px);
+    background-image: asset_url('ability-form.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 10vh;
+
+    img {
+      @include perimeter(40px, 40px);
+      position: absolute;
+      top: 0;
+      left: 230px;
+    }
+
+    .input {
+      @include perimeter(30px, 200px);
+      position: absolute;
+      bottom: 3px;
+      left: 10px;
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: transparent;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .button {
+      @include perimeter(40px, 100px);
+      position: absolute;
+      bottom: 0px;
+      right: 50px;
+      border: none;
+      background-color: transparent;
+      font-size: 20px;
+      cursor: pointer;
+      
+      &:hover {
+        color: #ED2D44;
+      }
+    }
+  }
+}

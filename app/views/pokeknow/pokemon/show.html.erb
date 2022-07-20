@@ -1,26 +1,44 @@
-<%= link_to 'Home', root_path %>
+<section class="pokemon-show">
+  <div class="pokemon-form">
+    <%= image_tag('question-mark.webp') %>
+    <%= form_with url: pokeknow_pokemon_path(:p), method: :get do |form| %>
+      <%= form.text_field :p, placeholder: "Search for pokemon", class: "input" %>
+      <%= form.submit "Search", name: "", class: "button" %>
+    <% end %>
+  </div>
 
-<%= form_with url: pokeknow_pokemon_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for pokemon" %>
-  <%= form.submit "Search", name: "" %>
-<% end %>
-
-<h1>Pokedex No. <%= @specific_pokemon['pokedex_number'] %> - <%= @specific_pokemon['name'] %> </h1>
-<p>The <%= @specific_pokemon['pokemon_genus'] %> </p>
-<p> <%= @specific_pokemon['pokemon_generation'] %> </p>
-<% @specific_pokemon["pokemon_sprites"].each do |sprite| %>
-  <% unless sprite == nil %>
-    <img src="<%= sprite %>" alt="pokemon sprite">
-  <% end %>
-<% end %>
-<div>Types:</div>
-<% @specific_pokemon['types'].each do |type| %>
-  <%= link_to "#{type['type']['name']}", pokeknow_type_path(p: type['type']['name']) %>
-<% end %>
-<% @specific_pokemon['abilities'].each do |ability| %>
-  <p> <%= ability["is_hidden"] ? "Hidden Ability" : "Ability" %> : <%= link_to "#{ability["ability"]['name']}", pokeknow_ability_path(p: ability["ability"]['name']) %> </p>
-<% end %>
-<% @specific_pokemon['stats'].each do |stat| %>
-  <p> <%= stat['stat']['name'] %> : <%= stat['base_stat'] %> </p>
-<% end %>
-<%= @specific_pokemon['pokemon_flavor_text'] %>
+  <div class="pokemon-details">
+    <div class="left-screen">
+      <div class="left-top">
+        <img src="<%= @specific_pokemon["pokemon_official_sprite"] %>" alt="pokemon sprite">
+      </div>
+      <div class="left-bottom">
+        <% @specific_pokemon["pokemon_sprites"].each do |sprite| %>
+          <% unless sprite == nil %>
+            <img src="<%= sprite %>" alt="pokemon sprite">
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="right-screen">
+      <h1><%= @specific_pokemon['name'].titleize %></h1>
+      <h2>The <%= @specific_pokemon['pokemon_genus'] %></h2>
+      <h2>Pokedex No. <%= @specific_pokemon['pokedex_number'] %> | <%= @specific_pokemon['pokemon_generation'] %></h2>
+      <div class="types">
+        <% @specific_pokemon['types'].each do |type| %>
+          <%= link_to "#{type['type']['name'].titleize}", pokeknow_type_path(p: type['type']['name']), class: "#{type['type']['name']}" %>
+        <% end %>
+      </div>
+      <p>Abilities</p>
+      <div class="abilities">
+        <% @specific_pokemon['abilities'].each do |ability| %>
+         <li> <u><%= link_to "#{ability["ability"]['name'].titleize}", pokeknow_ability_path(p: ability["ability"]['name']), class: "ability" %></u> <%= ability["is_hidden"] ? "- hidden ability" : "" %> </li>
+        <% end %>
+      </div>
+      <p>Stats</p>
+      <% @specific_pokemon['stats'].each do |stat| %>
+        <li class="stats"> <%= stat['stat']['name'].titleize %> : <%= stat['base_stat'] %> </li>
+      <% end %>
+    </div>
+  </div>
+</section>

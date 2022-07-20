@@ -1,15 +1,29 @@
-<%= link_to 'Home', root_path %>
-<br>
-<%= form_with url: pokeknow_item_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for item" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<h1> <%= @specific_item["item_name"] %> </h1>
-<% if @specific_item["item_sprite"] != nil %>
-  <img src="<%= @specific_item["item_sprite"] %>" alt="item sprite">
-<% end %>
-<%= @specific_item["item_category"] %>
-<p>Cost: <%= @specific_item["item_cost"] %> </p>
-<%= @specific_item["item_flavor_text"] %>
-<p>Effect: <%= @specific_item["item_effect"] %> </p>
+<section class="item-show">
+  <div class="item-form">
+    <%= image_tag('question-mark.webp') %>
+    <%= form_with url: pokeknow_item_path(:p), method: :get do |form| %>
+      <%= form.text_field :p, placeholder: "Search for item", class: "input" %>
+      <%= form.submit "Search", name: '', class: "button" %>
+    <% end %>
+  </div>
+
+  <div class="item-details">
+    <div class="left-screen">
+      <div class="left-top">
+        <p><%= @specific_item["item_category"].titleize %></p>
+      </div>
+      <div class="left-bottom">
+        <%= image_tag 'poke-bag.webp' %>
+        <% if @specific_item["item_sprite"] != nil %>
+          <img src="<%= @specific_item["item_sprite"] %>" alt="item sprite" class="item-image">
+        <% end %>
+      </div>
+    </div>
+    <div class="right-screen">
+      <h1><%= @specific_item["item_name"].titleize %></h1>
+      <p><%= @specific_item["item_flavor_text"] %></p>
+      <p>Cost: <%= @specific_item["item_cost"] %> </p>
+      <p>Effect: <%= @specific_item["item_effect"] %> </p>
+    </div>
+  </div>
+</section>

@@ -19,8 +19,8 @@ module Pokeapi
         'pokedex_number'=>species_version['pokedex_numbers'][0]['entry_number'],
         'pokemon_generation'=>species_version['generation']['name'],
         'pokemon_genus'=>species_version['genera'][-3]['genus'],
+        'pokemon_official_sprite'=>pokemon_details['sprites']['other']['official-artwork']['front_default'],
         'pokemon_sprites'=>[
-          pokemon_details['sprites']['other']['official-artwork']['front_default'],
           pokemon_details['sprites']['front_default'],
           pokemon_details['sprites']['back_default'],
           pokemon_details['sprites']['front_shiny'],

@@ -1,0 +1,225 @@
+@mixin perimeter($h, $w) {
+  height: $h;
+  width: $w;
+}
+
+@mixin type_logos {
+  .bug {
+    background-image: asset_url('bug.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .dark {
+    background-image: asset_url('dark.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .dragon {
+    background-image: asset_url('dragon.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .electric {
+    background-image: asset_url('electric.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .fairy {
+    background-image: asset_url('fairy.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .fighting {
+    background-image: asset_url('fighting.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .fire {
+    background-image: asset_url('fire.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .flying {
+    background-image: asset_url('flying.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .ghost {
+    background-image: asset_url('ghost.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .grass {
+    background-image: asset_url('grass.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .ground {
+    background-image: asset_url('ground.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .ice {
+    background-image: asset_url('ice.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .normal {
+    background-image: asset_url('normal.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .poison {
+    background-image: asset_url('poison.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .psychic {
+    background-image: asset_url('psychic.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .rock {
+    background-image: asset_url('rock.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .steel {
+    background-image: asset_url('steel.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .water {
+    background-image: asset_url('water.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+@mixin pokemon_type_colors {
+  .bug {
+    background-color: #88970D;
+  }
+
+  .dark {
+    background-color: #3B2D22;
+  }
+
+  .dragon {
+    background-color: #745FDC;
+  }
+
+  .electric {
+    background-color: #E79201;
+  }
+
+  .fairy {
+    background-color: #E090DD;
+  }
+
+  .fighting {
+    background-color: #5C2314;
+  }
+  
+  .fire {
+    background-color: #C92300;
+  }
+
+  .flying {
+    background-color: #5D73D6;
+  }
+
+  .ghost {
+    background-color: #47478F;
+  }
+
+  .grass {
+    background-color: #64B42E;
+  }
+
+  .ground {
+    background-color: #A88C41;
+  }
+
+  .ice {
+    background-color: #6CD3F5;
+  }
+
+  .normal {
+    background-color: #AEAA9E;
+  }
+
+  .poison {
+    background-color: #632765;
+  }
+
+  .psychic {
+    background-color: #DA3264;
+  }
+
+  .rock {
+    background-color: #9D8539;
+  }
+
+  .steel {
+    background-color: #908E9E;
+  }
+
+  .water {
+    background-color: #0B67C4;
+  }
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: hsl(225, 6%, 13%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 60%); 
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: #555; 
+    }
+  }
+}

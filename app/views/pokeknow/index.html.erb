@@ -1,36 +1,69 @@
-<h1> This is Poke-know home page </h1>
+<section class="pokeknow">
+  <div class="title">
+    <h1> This is Poke-know home page </h1>
+    <p> Input your search query on the following forms to be redirected. </p>
+    <p> The data utilized in this project came from <%= link_to "PokeApi", "https://pokeapi.co/docs/v2", target: "_blank" %>. </p>
+    <p> You can check out PokeApi's documentations to dig deeper on how the API works. </p>
+    <p> Fair Use </p>
+  </div>
 
-<%= form_with url: pokeknow_pokemon_path(:p), method: :get, class: "bg-pokedex-image bg-center bg-no-repeat bg-cover w-96 h-96 " do |form| %>
-  <%= form.text_field :p, placeholder: "Search for pokemon" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<%= form_with url: pokeknow_item_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for item" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<%= form_with url: pokeknow_berry_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for berry" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for tm" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for move" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<%= form_with url: pokeknow_ability_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for ability" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
-<br>
-<%= form_with url: pokeknow_type_path(:p), method: :get do |form| %>
-  <%= form.text_field :p, placeholder: "Search for type" %>
-  <%= form.submit "Search", name: '' %>
-<% end %>
+  <div class="top">
+    <div class="pokemon-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_pokemon_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for pokemon", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="mid">
+    <div class="move-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for move", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>
+    
+    <div class="type-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_type_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for type", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>
+
+    <div class="ability-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_ability_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for ability", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>  
+  </div>
+  <div class="bot">
+    <div class="machine-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for tm", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>
+
+    <div class="item-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_item_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for item", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>
+
+    <div class="berry-form">
+      <%= image_tag('question-mark.webp') %>
+      <%= form_with url: pokeknow_berry_path(:p), method: :get do |form| %>
+        <%= form.text_field :p, placeholder: "Search for berry", class: "input" %>
+        <%= form.submit "Search", name: '', class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</section>
