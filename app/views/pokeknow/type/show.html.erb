@@ -2,8 +2,8 @@
   <div class="type-form">
     <%= image_tag('question-mark.webp') %>
     <%= form_with url: pokeknow_type_path(:p), method: :get do |form| %>
-      <%= form.text_field :p, placeholder: "Search for type", class: "input" %>
-      <%= form.submit "Search", name: '', class: "button" %>
+      <%= form.text_field :p, placeholder: "Search for type", class: "type input" %>
+      <%= form.submit "Search", name: '', class: "type button" %>
     <% end %>
   </div>
 

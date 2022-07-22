@@ -11,8 +11,8 @@
     <div class="pokemon-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_pokemon_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for pokemon", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for pokemon", class: "pokemon input" %>
+        <%= form.submit "Search", name: '', class: "pokemon button" %>
       <% end %>
     </div>
   </div>
@@ -20,24 +20,24 @@
     <div class="move-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for move", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for move", class: "move input" %>
+        <%= form.submit "Search", name: '', class: "move button" %>
       <% end %>
     </div>
     
     <div class="type-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_type_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for type", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for type", class: "type input" %>
+        <%= form.submit "Search", name: '', class: "type button" %>
       <% end %>
     </div>
 
     <div class="ability-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_ability_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for ability", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for ability", class: "ability input" %>
+        <%= form.submit "Search", name: '', class: "ability button" %>
       <% end %>
     </div>  
   </div>
@@ -45,24 +45,24 @@
     <div class="machine-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_machine_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for tm", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for tm", class: "machine input" %>
+        <%= form.submit "Search", name: '', class: "machine button" %>
       <% end %>
     </div>
 
     <div class="item-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_item_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for item", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for item", class: "item input" %>
+        <%= form.submit "Search", name: '', class: "item button" %>
       <% end %>
     </div>
 
     <div class="berry-form">
       <%= image_tag('question-mark.webp') %>
       <%= form_with url: pokeknow_berry_path(:p), method: :get do |form| %>
-        <%= form.text_field :p, placeholder: "Search for berry", class: "input" %>
-        <%= form.submit "Search", name: '', class: "button" %>
+        <%= form.text_field :p, placeholder: "Search for berry", class: "berry input" %>
+        <%= form.submit "Search", name: '', class: "berry button" %>
       <% end %>
     </div>
   </div>

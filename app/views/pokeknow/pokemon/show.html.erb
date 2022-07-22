@@ -2,8 +2,8 @@
   <div class="pokemon-form">
     <%= image_tag('question-mark.webp') %>
     <%= form_with url: pokeknow_pokemon_path(:p), method: :get do |form| %>
-      <%= form.text_field :p, placeholder: "Search for pokemon", class: "input" %>
-      <%= form.submit "Search", name: "", class: "button" %>
+      <%= form.text_field :p, placeholder: "Search for pokemon", class: "pokemon input" %>
+      <%= form.submit "Search", name: "", class: "pokemon button" %>
     <% end %>
   </div>
 

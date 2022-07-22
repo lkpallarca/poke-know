@@ -2,8 +2,8 @@
   <div class="berry-form">
     <%= image_tag('question-mark.webp') %>
     <%= form_with url: pokeknow_berry_path(:p), method: :get do |form| %>
-      <%= form.text_field :p, placeholder: "Search for berry", class: "input" %>
-      <%= form.submit "Search", name: '', class: "button" %>
+      <%= form.text_field :p, placeholder: "Search for berry", class: "berry input" %>
+      <%= form.submit "Search", name: '', class: "berry button" %>
     <% end %>
   </div>
 

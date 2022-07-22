@@ -37,6 +37,7 @@
     }
 
     .text {
+      @include perimeter(117px, 480px);
       @include scrollbar;
       overflow-y: auto;
       overflow-x: hidden;

@@ -2,8 +2,8 @@
   <div class="move-form">
     <%= image_tag('question-mark.webp') %>
     <%= form_with url: pokeknow_move_path(:p), method: :get do |form| %>
-      <%= form.text_field :p, placeholder: "Search for move", class: "input" %>
-      <%= form.submit "Search", name: '', class: "button" %>
+      <%= form.text_field :p, placeholder: "Search for move", class: "move input" %>
+      <%= form.submit "Search", name: '', class: "move button" %>
     <% end %>
   </div>
 
