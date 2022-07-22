@@ -8,6 +8,12 @@
   </div>
 
   <div class="pokemon-details">
+    <% unless @specific_pokemon['id'].to_i <= 1 %>
+      <%= link_to "<", pokeknow_pokemon_path(p: (@specific_pokemon['id'].to_i - 1).to_s), class: "previous" %>
+    <% end %>
+    <% unless @specific_pokemon['id'].to_i >= 890 %>
+      <%= link_to ">", pokeknow_pokemon_path(p: (@specific_pokemon['id'].to_i + 1).to_s), class: "next" %>
+    <% end %>
     <div class="left-screen">
       <div class="left-top">
         <img src="<%= @specific_pokemon["pokemon_official_sprite"] %>" alt="pokemon sprite">

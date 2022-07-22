@@ -13,6 +13,31 @@
     background-position: center;
     background-size: contain;
     position: relative;
+    margin-bottom: 5vh;
+
+    .next, .previous {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FB0505;
+      font-size: 100px;
+    }
+
+    .previous {
+      left: 10px;
+
+      &:hover {
+        left: 0;
+      }
+    }
+
+    .next {
+      right: 10px;
+
+      &:hover {
+        right: 0;
+      }
+    }
 
     .right-screen {
       @include perimeter(345px, 274px);
